@@ -1,8 +1,8 @@
-####Assumptions
+### Assumptions
 * Data in db is not going to change.
 * Dependencies are resolved before running tests(no compilaton error)
 
-####Follow the below steps for executing tests
+### Follow the below steps for executing tests
 * Add the Base url in the test.properties file before running tests
 * I'm using lombok as a library(https://projectlombok.org/) for getter and setter methods.
 So ensure you install the lombok plugin in your editor. If you are using intellij, don't 
