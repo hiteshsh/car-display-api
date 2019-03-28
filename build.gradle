@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'car-display-api'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile("org.assertj:assertj-core:3.11.1")
+    compile group: 'io.rest-assured', name: 'rest-assured', version: '3.3.0'
+    compile group: 'io.rest-assured', name: 'json-schema-validator', version: '3.3.0'
+    compile group: 'org.projectlombok', name:'lombok', version: '1.16.18'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.2'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.2'
+}
+
+test{
+    useJUnit{
+        testLogging.showStandardStreams = true
+    }
+
+    def environment=System.getProperty("env")
+    if(environment!=null)
+        systemProperty 'environment', environment
+    else
+        systemProperty 'environment', 'test'
+}
