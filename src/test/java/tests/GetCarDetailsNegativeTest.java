@@ -43,6 +43,35 @@ public class GetCarDetailsNegativeTest extends BaseTest {
     }
 
     @Test
+    public void userShouldNotGetManufacturerIfInvalidKeyUsed(){
+        GetCarDetailsV1EndPoint carDetails= new GetCarDetailsV1EndPoint();
+        CarDetailsParamBuilder paramsBuilder= new CarDetailsParamBuilder();
+        Map<String,String> params=paramsBuilder.withLocale("en").withWaKey("invalid").build();
+        Response response=carDetails.getAllManufacturers(params);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.SC_FORBIDDEN);
+
+    }
+
+    @Test
+    public void userShouldNotGetCarTypeForAManufacturerIfInvalidKeyUsed(){
+        GetCarDetailsV1EndPoint carDetails= new GetCarDetailsV1EndPoint();
+        CarDetailsParamBuilder paramsBuilder= new CarDetailsParamBuilder();
+        Map<String,String> params=paramsBuilder.withLocale("en").withWaKey("invalid").withManufacturer("107").build();
+        Response response=carDetails.getCarType(params);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.SC_FORBIDDEN);
+    }
+
+    @Test
+    public void userShouldNotGetBuiltDateForManufacturerAndCarTyperIfInvalidKeyUsed(){
+        GetCarDetailsV1EndPoint carDetails= new GetCarDetailsV1EndPoint();
+        CarDetailsParamBuilder paramsBuilder= new CarDetailsParamBuilder();
+        Map<String,String> params=paramsBuilder.withLocale("en").withWaKey("invalid")
+                .withManufacturer("107").withCarType("Arnage").build();
+        Response response=carDetails.getCarBuiltDate(params);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.SC_FORBIDDEN);
+    }
+
+    @Test
     public void userShouldNotGetCarTypeIfManufacturerIsNotSelected(){
         GetCarDetailsV1EndPoint carDetails= new GetCarDetailsV1EndPoint();
         CarDetailsParamBuilder paramsBuilder= new CarDetailsParamBuilder();
