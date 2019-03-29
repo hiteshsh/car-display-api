@@ -1,9 +1,7 @@
 package apis.cardetails;
 
 import io.restassured.http.ContentType;
-import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
-
 import org.apache.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -84,7 +82,6 @@ public class GetCarDetailsV1EndPoint {
     }
 
     private static void  assertPageDetails(CarDetailResponse response){
-        System.out.println("response.getPage()"+response.getPage());
         assertThat(response.getPage()).isNotNull();
         assertThat(response.getPageSize()).isNotNull().isPositive();
         assertThat(response.getTotalPageCount()).isNotNull();

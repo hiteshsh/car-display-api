@@ -5,7 +5,7 @@ import utils.PropertiesReader;
 
 public class BaseTest {
 
-    protected final String wa_key="coding-puzzle-client-449cc9d";
+    protected final String wa_key="";
 
     @BeforeClass
     public static void setUp(){

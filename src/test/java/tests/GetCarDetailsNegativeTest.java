@@ -1,12 +1,11 @@
 package tests;
 
-import apis.cardetails.CarDetailResponse;
-import apis.cardetails.ErrorResponse;
+import apis.cardetails.CarDetailsParamBuilder;
 import apis.cardetails.GetCarDetailsV1EndPoint;
 import io.restassured.response.Response;
-import apis.cardetails.CarDetailsParamBuilder;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
+
 import java.util.Map;
 
 import static apis.cardetails.GetCarDetailsV1EndPoint.*;
